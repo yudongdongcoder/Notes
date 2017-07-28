@@ -56,7 +56,11 @@ NS_ASSUME_NONNULL_END
 }
 
 - (instancetype)initWithPath:(NSString *)path {
-    
+    // SQLite支持三种线程模式，sqlite3_threadsafe()函数的返回值可以确定编译时指定的线程模式。
+    // 三种模式分别为1.单线程模式 2.多线程模式 3.串行模式 其中对于单线程模式，sqlite3_threadsafe()返回false
+    // 对于另外两个模式，则返回true。这是因为单线程模式下没有进行互斥（mutex），所以多线程下是不安全的
+    int safe = sqlite3_threadsafe();
+    NSLog(@"%d",safe);
     assert(sqlite3_threadsafe()); // whoa there big boy- gotta make sure sqlite it happy with what we're going to do.
     
     self = [super init];

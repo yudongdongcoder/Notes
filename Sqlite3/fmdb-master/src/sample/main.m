@@ -17,7 +17,7 @@ void testStatementCaching();
 int main (int argc, const char * argv[]) {
     
 @autoreleasepool {
-    
+    sqlite3_config(SQLITE_CONFIG_SINGLETHREAD);
     FMDBReportABugFunction();
     
     NSString *dbPath = @"/tmp/tmp.db";
