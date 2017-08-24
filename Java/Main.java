@@ -7,6 +7,7 @@ public class Main {
 //		AbstractFactoryPattern.test();
 //		SingletonPattern.test();
 //		prototypePattern.test();
-		BuilderPattern.test();
+//		BuilderPattern.test();
+		BridgePattern.test();
 	}
 }
