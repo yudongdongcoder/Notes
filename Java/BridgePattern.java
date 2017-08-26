@@ -13,7 +13,7 @@ public class BridgePattern {
 class Matrix {
 
 }
-
+// abstraction 
 abstract class Image {
 	protected ImageImp imp;
 
@@ -46,7 +46,7 @@ class UnixImp implements ImageImp {
 		System.out.print("在Unix操作系统中显示图像：");
 	}
 }
-
+//RefinedAbstraction
 class PNGImage extends Image {
 	public void parseFile(String fileName) {
 		Matrix m = new Matrix();
