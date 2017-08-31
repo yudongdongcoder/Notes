@@ -10,8 +10,10 @@
 #import <AVFoundation/AVFoundation.h>
 #import <AssetsLibrary/AssetsLibrary.h>
 #import <Photos/Photos.h>
-//#import <PhotosUI/PhotosUI.h>
+#import "A.h"
+#import <CoreText/CoreText.h>
 @interface ViewController ()
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
 
 @end
 
@@ -19,49 +21,61 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+//    int b = 3;
+//    A *a = [A new];
+//    a.name = @"name";
+//    [a test:^{
+//        NSLog(@"--%d",b);
+//    }];
+//    a = nil;
     NSURL *url = [[NSBundle mainBundle] URLForResource:@"test1" withExtension:@"mp4"];
     NSDictionary *options = @{AVURLAssetPreferPreciseDurationAndTimingKey:@YES};
     AVURLAsset *anAsset = [[AVURLAsset alloc] initWithURL:url options:options];
-//    AVURLAssetPreferPreciseDurationAndTimingKey
-    // Do any additional setup after loading the view, typically from a nib.
+//    AVAssetImageGenerator *imageGenerator = [AVAssetImageGenerator assetImageGeneratorWithAsset:anAsset];
+//    Float64 durationSeconds = CMTimeGetSeconds([anAsset duration]);
+//    CMTime firstThird = CMTimeMakeWithSeconds(durationSeconds/3.0, 600);
+//    CMTime  secondThird = CMTimeMakeWithSeconds(durationSeconds/2.0, 600);
+//    CMTime end = CMTimeMakeWithSeconds(durationSeconds, 600);
+//    
+//    NSArray *times = @[[NSValue valueWithCMTime:kCMTimeZero],
+//                       [NSValue valueWithCMTime:firstThird],
+//                       [NSValue valueWithCMTime:secondThird],
+//                       [NSValue valueWithCMTime:end]];
+//    [imageGenerator generateCGImagesAsynchronouslyForTimes:times completionHandler:^(CMTime requestedTime, CGImageRef  _Nullable image, CMTime actualTime, AVAssetImageGeneratorResult result, NSError * _Nullable error) {
+//        NSString *requestedTimeString = CFBridgingRelease(CMTimeCopyDescription(NULL, requestedTime));
+//        NSString *actualTimeString = CFBridgingRelease(CMTimeCopyDescription(NULL, actualTime));
+//
+//    }];
+    
+//    NSArray *compatiblePresets = [AVAssetExportSession exportPresetsCompatibleWithAsset:anAsset];
+//    if ([compatiblePresets containsObject:AVAssetExportPresetLowQuality]) {
+//        AVAssetExportSession *exportSession = [[AVAssetExportSession alloc] initWithAsset:anAsset presetName:AVAssetExportPresetLowQuality];
+//        NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+//       path = [path stringByAppendingPathComponent:@"abc.mov"];
+//        exportSession.outputURL =[[NSURL alloc] initFileURLWithPath:path];
+//        exportSession.outputFileType = AVFileTypeQuickTimeMovie;
+//        CMTime start = CMTimeMakeWithSeconds(1.0, 600);
+//        CMTime duration = CMTimeMakeWithSeconds(3.0, 600);
+//        CMTimeRange range = CMTimeRangeMake(start, duration);
+//        exportSession.timeRange = range;
+//        
+//        [exportSession exportAsynchronouslyWithCompletionHandler:^{
+//            switch ([exportSession status]) {
+//                case AVAssetExportSessionStatusFailed:
+//                    NSLog(@"Export failed: %@", [[exportSession error] localizedDescription]);
+//                    break;
+//                case AVAssetExportSessionStatusCancelled:
+//                    NSLog(@"Export canceled");
+//                    break;
+//                default:
+//                    break;
+//            }
+//        }];
+    
+//    }
+    
 }
 
-- (void)loadAVAsset{
-    
-    PHPhotoLibrary *photoLibrary = [PHPhotoLibrary sharedPhotoLibrary];
-    
-    ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
-    
-    // Enumerate just the photos and videos group by using ALAssetsGroupSavedPhotos.
-    [library enumerateGroupsWithTypes:ALAssetsGroupSavedPhotos usingBlock:^(ALAssetsGroup *group, BOOL *stop) {
-        
-        // Within the group enumeration block, filter to enumerate just videos.
-        [group setAssetsFilter:[ALAssetsFilter allVideos]];
-        
-        // For this example, we're only interested in the first item.
-        [group enumerateAssetsAtIndexes:[NSIndexSet indexSetWithIndex:0]
-                                options:0
-                             usingBlock:^(ALAsset *alAsset, NSUInteger index, BOOL *innerStop) {
-                                 
-                                 // The end of the enumeration is signaled by asset == nil.
-                                 if (alAsset) {
-                                     ALAssetRepresentation *representation = [alAsset defaultRepresentation];
-                                     NSURL *url = [representation url];
-                                     AVAsset *avAsset = [AVURLAsset URLAssetWithURL:url options:nil];
-                                     // Do something interesting with the AV asset.
-                                 }
-                             }];
-    }
-                         failureBlock: ^(NSError *error) {
-                             // Typically you should handle an error more gracefully than this.
-                             NSLog(@"No groups");
-                         }];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 
 @end

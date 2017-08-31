@@ -16,6 +16,7 @@
 		70DAEEE51F51289A00CA4B50 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70DAEEE41F51289A00CA4B50 /* AVFoundation.framework */; };
 		70DAEEE71F51290A00CA4B50 /* test1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 70DAEEE61F51290A00CA4B50 /* test1.mp4 */; };
 		70DAEEEB1F51537C00CA4B50 /* PhotosTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70DAEEEA1F51537C00CA4B50 /* PhotosTableViewController.m */; };
+		70DAEEFC1F5511B500CA4B50 /* A.m in Sources */ = {isa = PBXBuildFile; fileRef = 70DAEEFB1F5511B500CA4B50 /* A.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,8 @@
 		70DAEEE61F51290A00CA4B50 /* test1.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = test1.mp4; sourceTree = "<group>"; };
 		70DAEEE91F51537C00CA4B50 /* PhotosTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotosTableViewController.h; sourceTree = "<group>"; };
 		70DAEEEA1F51537C00CA4B50 /* PhotosTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotosTableViewController.m; sourceTree = "<group>"; };
+		70DAEEFA1F5511B500CA4B50 /* A.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = A.h; sourceTree = "<group>"; };
+		70DAEEFB1F5511B500CA4B50 /* A.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = A.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +81,8 @@
 				70DAEEDA1F5122C600CA4B50 /* LaunchScreen.storyboard */,
 				70DAEEDD1F5122C600CA4B50 /* Info.plist */,
 				70DAEECC1F5122C600CA4B50 /* Supporting Files */,
+				70DAEEFA1F5511B500CA4B50 /* A.h */,
+				70DAEEFB1F5511B500CA4B50 /* A.m */,
 			);
 			path = AVFoundationDemo;
 			sourceTree = "<group>";
@@ -180,6 +185,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				70DAEEFC1F5511B500CA4B50 /* A.m in Sources */,
 				70DAEED41F5122C600CA4B50 /* ViewController.m in Sources */,
 				70DAEED11F5122C600CA4B50 /* AppDelegate.m in Sources */,
 				70DAEEEB1F51537C00CA4B50 /* PhotosTableViewController.m in Sources */,
