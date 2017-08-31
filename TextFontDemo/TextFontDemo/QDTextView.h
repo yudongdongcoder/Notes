@@ -10,4 +10,7 @@
 
 @interface QDTextView : UITextView
 
+-(instancetype)initWithFrame:(CGRect)frame attributesString:(NSAttributedString *)attributesString;
+- (void)addLayer:(NSArray *)lineRects;
+
 @end

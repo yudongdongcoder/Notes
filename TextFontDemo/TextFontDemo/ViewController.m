@@ -11,8 +11,10 @@
 #import <VideoToolbox/VideoToolbox.h>
 #import "A.h"
 #import "QDTextView.h"
+#import "CoreTextView.h"
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *label;
+@property (weak, nonatomic) IBOutlet CoreTextView *CT;
 
 @end
 
@@ -22,45 +24,62 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+
     NSString *text = @"我还是很喜欢你\n"
-        @"像老故事里的泛黄桥段\n"
-        @"半聋半哑\n"
-        @"失了声息";
-    QDTextView *textView = [[QDTextView alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
-    [self.view addSubview:textView];
-    textView.text = text;
-//    NSTextStorage *textStorage = [[NSTextStorage alloc] initWithString:@"我还是很喜欢你\n"
-//    @"像老故事里的泛黄桥段\n"
-//    @"半聋半哑\n"
-//    @"失了声息" ];
-//    
-//    NSLayoutManager *layoutManager = [NSLayoutManager new];
-//    [textStorage addLayoutManager: layoutManager];
-//    layoutManager.delegate = self;
-//    NSTextContainer *textContainer = [[NSTextContainer alloc] initWithSize:CGSizeMake(100, 100)];
-//    [layoutManager addTextContainer: textContainer];
+    @"像老故事里的泛黄桥段sdcascaxczxczxczxczxczxczxczxc时代峻峰噶就是看到合格方可骄傲三个地方金卡是个大飞机撒旦法还是贷款纠纷哈收到回复\n"
+    @"半聋半哑\n"
+    @"失了声息";
+    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+    paragraphStyle.lineSpacing = 10;// 字体的行间距
     
-//    QDTextView *textView = [[QDTextView alloc] initWithFrame:CGRectMake(100, 100, 100, 100)
-//                                               textContainer:textContainer];
+    NSDictionary *attributes = @{
+                                 NSFontAttributeName:[UIFont systemFontOfSize:15],
+                                 NSParagraphStyleAttributeName:paragraphStyle
+                                 };
+  NSAttributedString *as =  [[NSAttributedString alloc] initWithString:text attributes:attributes];
+    self.CT.as = as;
+
+//    self.label.attributedText = as;
+   
+    QDTextView *textView = [[QDTextView alloc] initWithFrame:CGRectMake(100, 100, 100, 200) attributesString:as];
+    [self.view addSubview:textView];
+//    [textView sizeToFit];
+//    textView.attributedText = as;
+//    textView.textAlignment = NSTextAlignmentCenter;
+    
+    
+    NSTextStorage *textStorage = [[NSTextStorage alloc] initWithString:@"我还是很喜欢你\n"
+    @"像老故事里的泛黄桥段\n"
+    @"半聋半哑\n"
+    @"失了声息" ];
+    
+    NSLayoutManager *layoutManager = [NSLayoutManager new];
+    [textStorage addLayoutManager: layoutManager];
+    layoutManager.delegate = self;
+    NSTextContainer *textContainer = [[NSTextContainer alloc] initWithSize:CGSizeMake(100, 100)];
+    [layoutManager addTextContainer: textContainer];
+    
+    QDTextView *textView2 = [[QDTextView alloc] initWithFrame:CGRectMake(100, 300, 100, 100)
+                                               textContainer:textContainer];
     
 //    textView.text = @"我还是很喜欢你\n"
 //    @"像老故事里的泛黄桥段\n"
 //    @"半聋半哑\n"
 //    @"失了声息";
-//    CGRect layoutRect = [layoutManager usedRectForTextContainer:textContainer];
-////    [self.view addSubview:textView];
-//    NSMutableArray *array = [[NSMutableArray alloc] init];
-//        [layoutManager enumerateLineFragmentsForGlyphRange:NSMakeRange(0, textView.text.length) usingBlock:^(CGRect rect, CGRect usedRect, NSTextContainer * _Nonnull textContainer, NSRange glyphRange, BOOL * _Nonnull stop) {
-//            [array addObject:[NSValue valueWithRange:glyphRange]];
-//    
-//        }];
-//    NSMutableArray *rects = [NSMutableArray array];
-//    for (NSValue *rangeValue in array) {
-//       CGRect rect = [layoutManager boundingRectForGlyphRange:rangeValue.rangeValue inTextContainer:textContainer];
-//        rect.origin.y += 100/2-layoutRect.size.height/2.0;
-//        [rects addObject:[NSValue valueWithCGRect:rect]];
-//    }
-//    [textView addLayer:rects];
+    CGRect layoutRect = [layoutManager usedRectForTextContainer:textContainer];
+    [self.view addSubview:textView2];
+    NSMutableArray *array = [[NSMutableArray alloc] init];
+        [layoutManager enumerateLineFragmentsForGlyphRange:NSMakeRange(0, textView.text.length) usingBlock:^(CGRect rect, CGRect usedRect, NSTextContainer * _Nonnull textContainer, NSRange glyphRange, BOOL * _Nonnull stop) {
+            [array addObject:[NSValue valueWithRange:glyphRange]];
+    
+        }];
+    NSMutableArray *rects = [NSMutableArray array];
+    for (NSValue *rangeValue in array) {
+       CGRect rect = [layoutManager boundingRectForGlyphRange:rangeValue.rangeValue inTextContainer:textContainer];
+        rect.origin.y += 100/2-layoutRect.size.height/2.0;
+        [rects addObject:[NSValue valueWithCGRect:rect]];
+    }
+    [textView2 addLayer:rects];
 //    NSLayoutManager
 //    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] init];
 //    [attributedString appendAttributedString:[[NSAttributedString alloc] initWithString:@"test "
@@ -73,10 +92,10 @@
 //    
 //    [attributedString appendAttributedString:[[NSAttributedString alloc] initWithString:@"tring"]];
 //    self.label.attributedText =  attributedString;
-    self.label.text = @"我还是很喜欢你\n"
-                      @"像老故事里的泛黄桥段\n"
-                      @"半聋半哑\n"
-                      @"失了声息";
+//    self.label.text = @"我还是很喜欢你\n"
+//                      @"像老故事里的泛黄桥段\n"
+//                      @"半聋半哑\n"
+//                      @"失了声息";
 //    self.label.shadowColor = [UIColor redColor];
 //    self.label.shadowOffset = 3;
 //    A *a = [A new];
