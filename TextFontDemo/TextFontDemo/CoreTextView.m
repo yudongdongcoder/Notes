@@ -13,8 +13,10 @@
 
 - (void)drawRect:(CGRect)rect
 {
-    
-    self.layers = [NSMutableArray array];
+    if (!self.as) {
+        return;
+    }
+//    self.layers = [NSMutableArray array];
     [super drawRect:rect];
     
     // 1.获取上下文
@@ -189,7 +191,7 @@
 ////        CTRunFrame.origin.y += 200;
 ////        NSLog(@"===%@",[NSValue valueWithCGRect:CTRunFrame]);
 //
-//        [self.layers addObject:[NSValue valueWithCGRect:CTRunFrame]];
+//        [sellayerrs addObject:[NSValue valueWithCGRect:CTRunFrame]];
 ////        if ([self isFrame:CTRunFrame containsPoint:location]) {
 ////            NSLog(@"您点击到了第 %d 个字符，位于第 %d 行，然而他没有响应事件。",i,lineNum + 1);//点击到文字，然而没有响应的处理。可以做其他处理
 ////            return;

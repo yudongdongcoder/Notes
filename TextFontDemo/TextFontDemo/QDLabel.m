@@ -16,51 +16,76 @@
 @end
 @implementation QDLabel
 
--(instancetype)initWithFrame:(CGRect)frame{
-    self = [super initWithFrame:frame];
-    if (self) {
-//        [self textKitObjectSetup];
- 
-    }
-    return self;
-}
-
--(instancetype)initWithCoder:(NSCoder *)aDecoder{
-    self = [super initWithCoder:aDecoder];
-    if (self) {
-//        [self textKitObjectSetup];
-    }
-    return self;
-}
--(void)drawTextInRect:(CGRect)rect{
-//    [super drawTextInRect:rect];
-    [self textKitObjectSetup];
-
-}
-- (void)textKitObjectSetup{
-    self.textStorage = [[NSTextStorage alloc] initWithString:self.text];
-    self.textLayoutManager = [[NSLayoutManager alloc] init];
-    self.textContainer = [[NSTextContainer alloc] init];
+-(void)drawRect:(CGRect)rect{
+    [super drawRect:rect];
     
-    [self.textStorage addLayoutManager:self.textLayoutManager];
-    [self.textLayoutManager addTextContainer:self.textContainer];
-    self.textLayoutManager.delegate = self;
-    self.textContainer.size = self.bounds.size;
-    self.textContainer.maximumNumberOfLines = self.numberOfLines;
-    self.textContainer.lineBreakMode = self.lineBreakMode;
-    [self getSeparatedLinesFromLabel:self];
+    if (!self.text)
+        return;
+    
+    // begin drawing
+    
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    
+    // flip the coordinate system
+    
+    CGContextSetTextMatrix(context, CGAffineTransformMakeRotation(M_PI_4 / 2.0));
+    CGContextTranslateCTM(context, 0, self.bounds.size.height);
+    CGContextScaleCTM(context, 1.0, -1.0);
+    
+    // write the text
+    
+//    CGContextSelectFont (context, "Helvetica", self.fontSize, kCGEncodingMacRoman);
+    CGContextSetTextDrawingMode (context, kCGTextFillStroke);
+    CGContextSetStrokeColorWithColor(context, [[UIColor whiteColor] CGColor]);
+    CGContextSetLineWidth(context, 1.5);
+    CGContextSetFillColorWithColor(context, [[UIColor redColor] CGColor]);
+    CGContextShowTextAtPoint (context, 40, 100, [self.text UTF8String], [self.text length]);
 }
-
--(void)layoutManager:(NSLayoutManager *)layoutManager didCompleteLayoutForTextContainer:(NSTextContainer *)textContainer atEnd:(BOOL)layoutFinishedFlag{
-    [self calculateLineFrame];
-}
-
-- (void)calculateLineFrame{
-//    [self.textLayoutManager boundingRectForGlyphRange:NSMakeRange(0, 1) inTextContainer:self.textContainer];
-    [self.textLayoutManager enumerateLineFragmentsForGlyphRange:NSMakeRange(0, self.text.length) usingBlock:^(CGRect rect, CGRect usedRect, NSTextContainer * _Nonnull textContainer, NSRange glyphRange, BOOL * _Nonnull stop) {
-        
-    }];
-}
+//-(instancetype)initWithFrame:(CGRect)frame{
+//    self = [super initWithFrame:frame];
+//    if (self) {
+////        [self textKitObjectSetup];
+// 
+//    }
+//    return self;
+//}
+//
+//-(instancetype)initWithCoder:(NSCoder *)aDecoder{
+//    self = [super initWithCoder:aDecoder];
+//    if (self) {
+////        [self textKitObjectSetup];
+//    }
+//    return self;
+//}
+//-(void)drawTextInRect:(CGRect)rect{
+////    [super drawTextInRect:rect];
+//    [self textKitObjectSetup];
+//
+//}
+//- (void)textKitObjectSetup{
+//    self.textStorage = [[NSTextStorage alloc] initWithString:self.text];
+//    self.textLayoutManager = [[NSLayoutManager alloc] init];
+//    self.textContainer = [[NSTextContainer alloc] init];
+//    
+//    [self.textStorage addLayoutManager:self.textLayoutManager];
+//    [self.textLayoutManager addTextContainer:self.textContainer];
+//    self.textLayoutManager.delegate = self;
+//    self.textContainer.size = self.bounds.size;
+//    self.textContainer.maximumNumberOfLines = self.numberOfLines;
+//    self.textContainer.lineBreakMode = self.lineBreakMode;
+//    [self getSeparatedLinesFromLabel:self];
+//}
+//
+//-(void)layoutManager:(NSLayoutManager *)layoutManager didCompleteLayoutForTextContainer:(NSTextContainer *)textContainer atEnd:(BOOL)layoutFinishedFlag{
+//    [self calculateLineFrame];
+//}
+//
+//- (void)calculateLineFrame{
+////    [self.textLayoutManager boundingRectForGlyphRange:NSMakeRange(0, 1) inTextContainer:self.textContainer];
+//    [self.textLayoutManager enumerateLineFragmentsForGlyphRange:NSMakeRange(0, self.text.length) usingBlock:^(CGRect rect, CGRect usedRect, NSTextContainer * _Nonnull textContainer, NSRange glyphRange, BOOL * _Nonnull stop) {
+//        
+//    }];
+//}
 /*
 -(void)drawTextInRect:(CGRect)rect{
   

@@ -22,6 +22,11 @@
 		704C41221F418E760039FEC6 /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 704C41211F418E760039FEC6 /* VideoToolbox.framework */; };
 		704C41251F430A5D0039FEC6 /* A.m in Sources */ = {isa = PBXBuildFile; fileRef = 704C41241F430A5D0039FEC6 /* A.m */; };
 		704C41281F430A690039FEC6 /* B.m in Sources */ = {isa = PBXBuildFile; fileRef = 704C41271F430A690039FEC6 /* B.m */; };
+		704D4E0C1F5D4806002D6659 /* QDCTCustomAttributedString.m in Sources */ = {isa = PBXBuildFile; fileRef = 704D4E0B1F5D4806002D6659 /* QDCTCustomAttributedString.m */; };
+		704D4E0F1F612B98002D6659 /* ContextHookModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 704D4E0E1F612B98002D6659 /* ContextHookModel.m */; };
+		704D4E151F6236D0002D6659 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 704D4E141F6236D0002D6659 /* TableViewController.m */; };
+		704D4E181F62391A002D6659 /* QDCTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 704D4E171F62391A002D6659 /* QDCTViewController.m */; };
+		70F3C9661F58F8D500C56F07 /* QDCTVIew.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F3C9651F58F8D500C56F07 /* QDCTVIew.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +54,16 @@
 		704C41241F430A5D0039FEC6 /* A.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = A.m; sourceTree = "<group>"; };
 		704C41261F430A690039FEC6 /* B.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = B.h; sourceTree = "<group>"; };
 		704C41271F430A690039FEC6 /* B.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = B.m; sourceTree = "<group>"; };
+		704D4E0A1F5D4806002D6659 /* QDCTCustomAttributedString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QDCTCustomAttributedString.h; sourceTree = "<group>"; };
+		704D4E0B1F5D4806002D6659 /* QDCTCustomAttributedString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QDCTCustomAttributedString.m; sourceTree = "<group>"; };
+		704D4E0D1F612B98002D6659 /* ContextHookModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContextHookModel.h; sourceTree = "<group>"; };
+		704D4E0E1F612B98002D6659 /* ContextHookModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContextHookModel.m; sourceTree = "<group>"; };
+		704D4E131F6236D0002D6659 /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
+		704D4E141F6236D0002D6659 /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
+		704D4E161F62391A002D6659 /* QDCTViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QDCTViewController.h; sourceTree = "<group>"; };
+		704D4E171F62391A002D6659 /* QDCTViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QDCTViewController.m; sourceTree = "<group>"; };
+		70F3C9641F58F8D500C56F07 /* QDCTVIew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QDCTVIew.h; sourceTree = "<group>"; };
+		70F3C9651F58F8D500C56F07 /* QDCTVIew.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QDCTVIew.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +105,10 @@
 				704C408C1F3AA2790039FEC6 /* AppDelegate.m */,
 				704C408E1F3AA2790039FEC6 /* ViewController.h */,
 				704C408F1F3AA2790039FEC6 /* ViewController.m */,
+				704D4E131F6236D0002D6659 /* TableViewController.h */,
+				704D4E141F6236D0002D6659 /* TableViewController.m */,
+				704D4E161F62391A002D6659 /* QDCTViewController.h */,
+				704D4E171F62391A002D6659 /* QDCTViewController.m */,
 				704C40A21F3AA4C20039FEC6 /* CoreTextView.h */,
 				704C40A31F3AA4C20039FEC6 /* CoreTextView.m */,
 				704C41231F430A5D0039FEC6 /* A.h */,
@@ -105,6 +124,12 @@
 				7011CD701F5695C400B4DC30 /* QDLabel.m */,
 				7011CD721F58074100B4DC30 /* QDTextView.h */,
 				7011CD731F58074100B4DC30 /* QDTextView.m */,
+				70F3C9641F58F8D500C56F07 /* QDCTVIew.h */,
+				70F3C9651F58F8D500C56F07 /* QDCTVIew.m */,
+				704D4E0A1F5D4806002D6659 /* QDCTCustomAttributedString.h */,
+				704D4E0B1F5D4806002D6659 /* QDCTCustomAttributedString.m */,
+				704D4E0D1F612B98002D6659 /* ContextHookModel.h */,
+				704D4E0E1F612B98002D6659 /* ContextHookModel.m */,
 			);
 			path = TextFontDemo;
 			sourceTree = "<group>";
@@ -206,7 +231,12 @@
 				704C408D1F3AA2790039FEC6 /* AppDelegate.m in Sources */,
 				7011CD741F58074100B4DC30 /* QDTextView.m in Sources */,
 				7011CD711F5695C400B4DC30 /* QDLabel.m in Sources */,
+				704D4E0F1F612B98002D6659 /* ContextHookModel.m in Sources */,
+				704D4E151F6236D0002D6659 /* TableViewController.m in Sources */,
+				704D4E181F62391A002D6659 /* QDCTViewController.m in Sources */,
 				704C40A41F3AA4C20039FEC6 /* CoreTextView.m in Sources */,
+				704D4E0C1F5D4806002D6659 /* QDCTCustomAttributedString.m in Sources */,
+				70F3C9661F58F8D500C56F07 /* QDCTVIew.m in Sources */,
 				704C408A1F3AA2790039FEC6 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

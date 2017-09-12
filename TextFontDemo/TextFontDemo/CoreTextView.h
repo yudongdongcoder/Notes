@@ -9,9 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface CoreTextView : UIView
-@property (nonatomic, strong) NSMutableArray *layers;
-
-@property (nonatomic, strong) NSMutableArray *lineRect;
+//@property (nonatomic, strong) NSMutableArray *layers;
+//
+//@property (nonatomic, strong) NSMutableArray *lineRect;
 @property (nonatomic, strong) NSAttributedString *as;
 
 @end
