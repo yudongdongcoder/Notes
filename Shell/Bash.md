@@ -1,7 +1,7 @@
 # bash
 [TOC]
 
-##[Shell命令](http://www.runoob.com/linux/linux-command-manual.html
+[Shell命令](http://www.runoob.com/linux/linux-command-manual.html
 )
 
 ## `#!` 
