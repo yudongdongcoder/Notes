@@ -244,6 +244,9 @@ public final class StdIn {
         return !scanner.hasNext();
     }
 
+    public static boolean isEnd() {
+        return scanner.hasNext("e");
+    }
    /**
      * Returns true if standard input has a next line.
      * Use this method to know whether the
