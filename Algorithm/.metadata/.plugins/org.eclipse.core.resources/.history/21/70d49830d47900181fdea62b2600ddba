@@ -18,6 +18,36 @@ public class SortSummary {
 	
 }
 
+class SortBase {
+	
+	static boolean less(Comparable v, Comparable w) {
+		return v.compareTo(w) < 0;
+	}
+	
+	static void exch(Object[] a, int i, int j) {
+		Object swap = a[i];
+		a[i] = a[j];
+		a[j] = swap;
+	}
+	
+	static boolean isSorted (Comparable[] a) {
+		return isSorted(a, 0, a.length-1);
+	}
+	
+	static boolean isSorted (Comparable[] a, int lo, int hi) {
+		for (int i = lo + 1; i <= hi; i++)
+			if (less(a[i], a[i-1])) return false;
+		return true;
+	}
+	
+	static boolean isHSorted(Comparable[] a, int h) {
+		for (int i = h; i < a.length; i++) 
+			if(less(a[i], a[i-h])) return false;
+		return true;
+	}
+
+}
+
 
 class Selection extends SortBase { 
 	
@@ -51,7 +81,6 @@ class Insertion extends SortBase{
 	}
 }
 
-
 class Shell extends SortBase{
 	
 	static void sort(Comparable[] a) {
@@ -75,35 +104,7 @@ class Shell extends SortBase{
 }
 
 
-class SortBase {
-	
-	static boolean less(Comparable v, Comparable w) {
-		return v.compareTo(w) < 0;
-	}
-	
-	static void exch(Object[] a, int i, int j) {
-		Object swap = a[i];
-		a[i] = a[j];
-		a[j] = swap;
-	}
-	
-	static boolean isSorted (Comparable[] a) {
-		return isSorted(a, 0, a.length-1);
-	}
-	
-	static boolean isSorted (Comparable[] a, int lo, int hi) {
-		for (int i = lo + 1; i <= hi; i++)
-			if (less(a[i], a[i-1])) return false;
-		return true;
-	}
-	
-	static boolean isHSorted(Comparable[] a, int h) {
-		for (int i = h; i < a.length; i++) 
-			if(less(a[i], a[i-h])) return false;
-		return true;
-	}
 
-}
 
 
 
