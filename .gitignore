@@ -2,6 +2,12 @@
 ### macOS ###
 *.DS_Store
 
+### Objective-C ###
+xcuserdata/
+
+
+
+
 
 
 ### Java ###
